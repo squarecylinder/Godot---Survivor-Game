@@ -32,14 +32,17 @@ func _physics_process(delta):
 func take_damage():
 	if health > 0:
 		_animated_sprite.play("hit")
-		speed -= speed * .05
+		speed -= speed * .05 #should cause like a one frame stun idk
 		health -= 1
 	
 	if health <= 0:
 		_animated_sprite.play("death")
 
 func _on_animated_sprite_2d_animation_finished():
-	print(_animated_sprite.animation)
 	if _animated_sprite.animation == "death":
 		give_score.emit(3)
 		queue_free()
+		const SMOKE_EXPLOSION = preload("res://smoke_explosion/smoke_explosion.tscn")
+		var smoke = SMOKE_EXPLOSION.instantiate()
+		get_parent().add_child(smoke)
+		smoke.global_position = global_position
