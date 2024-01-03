@@ -1,7 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://dyy6jnjoup2kd"]
+[gd_scene load_steps=24 format=3 uid="uid://dyy6jnjoup2kd"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_0nfn2"]
-[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_i6pih"]
 [ext_resource type="Script" path="res://player/PlayerCamera.gd" id="3_wtx10"]
 [ext_resource type="PackedScene" uid="uid://15wfdv8vsmf1" path="res://pistol/gun.tscn" id="4_j5jjy"]
 [ext_resource type="Texture2D" uid="uid://ed7f6kgehsve" path="res://player/Basic Charakter Spritesheet.png" id="5_fx4rs"]
@@ -158,11 +157,6 @@ script = ExtResource("1_0nfn2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_umpwx")
-
-[node name="HappyBoo" parent="." instance=ExtResource("1_i6pih")]
-unique_name_in_owner = true
-visible = false
-position = Vector2(0, 1)
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 script = ExtResource("3_wtx10")
