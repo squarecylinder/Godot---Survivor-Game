@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dys84mj1qs1xe"]
+
+[ext_resource type="Script" path="res://power_ups/speed_boost/speed_boost.gd" id="1_vxyy6"]
+[ext_resource type="Texture2D" uid="uid://b6u2q3hmva3c1" path="res://power_ups/speed_boost/crosshair024.png" id="2_na5im"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1oowv"]
+
+[node name="SpeedBoost" type="Area2D"]
+script = ExtResource("1_vxyy6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(58, 44)
+scale = Vector2(3.55797, 4.38261)
+shape = SubResource("CircleShape2D_1oowv")
+
+[node name="Crosshair024" type="Sprite2D" parent="."]
+position = Vector2(58, 41)
+scale = Vector2(2.16, 2.16)
+texture = ExtResource("2_na5im")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://f3f2ww8dc5n8"]
+
+[ext_resource type="Script" path="res://power_ups/faster_shots/faster_shots.gd" id="1_v0fot"]
+[ext_resource type="Texture2D" uid="uid://cm6u661lbv4jc" path="res://power_ups/faster_shots/projectile.png" id="1_x0o2e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lybpv"]
+radius = 55.9017
+
+[node name="FasterShots" type="Area2D"]
+script = ExtResource("1_v0fot")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lybpv")
+
+[node name="Projectile" type="Sprite2D" parent="."]
+position = Vector2(-37, 7)
+rotation = -1.57391
+texture = ExtResource("1_x0o2e")
+
+[node name="Projectile2" type="Sprite2D" parent="."]
+position = Vector2(38, 8)
+rotation = -1.56754
+texture = ExtResource("1_x0o2e")
+
+[node name="Projectile3" type="Sprite2D" parent="."]
+position = Vector2(15, -10)
+rotation = -1.57512
+texture = ExtResource("1_x0o2e")
+
+[node name="Projectile4" type="Sprite2D" parent="."]
+position = Vector2(-13, -10)
+rotation = -1.56633
+texture = ExtResource("1_x0o2e")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
