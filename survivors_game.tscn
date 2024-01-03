@@ -50,6 +50,7 @@ rotation = 0.0107828
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6
+one_shot = true
 autostart = true
 
 [node name="GameOver" type="CanvasLayer" parent="."]

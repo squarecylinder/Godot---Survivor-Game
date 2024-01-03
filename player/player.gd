@@ -31,6 +31,12 @@ func _physics_process(delta):
 		if health <= 0.0:
 			health_depleted.emit()
 
+func player_hit():
+	health -= 10
+	%ProgressBar.value = health
+	if health <= 0.0:
+		health_depleted.emit()
+
 func pick_up_power_up(power_up):
 	if power_up == "faster_shots":
 		picked_up_power_up.emit("faster_shots")

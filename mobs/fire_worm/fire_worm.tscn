@@ -423,6 +423,8 @@ animations = [{
 }]
 
 [node name="FireWorm" type="CharacterBody2D"]
+light_mask = 2
+visibility_layer = 3
 script = ExtResource("1_8gstq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -431,8 +433,12 @@ shape = SubResource("CircleShape2D_hpwft")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_l2v1c")
-animation = &"hit"
-frame = 2
-frame_progress = 1.0
+animation = &"attack"
+
+[node name="ShootingPoint" type="Marker2D" parent="AnimatedSprite2D"]
+unique_name_in_owner = true
+top_level = true
+position = Vector2(11.6667, -7)
+scale = Vector2(0.333333, 0.333333)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

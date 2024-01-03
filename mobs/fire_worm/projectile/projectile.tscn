@@ -1,0 +1,136 @@
+[gd_scene load_steps=20 format=3 uid="uid://frnbagig2gig"]
+
+[ext_resource type="Texture2D" uid="uid://dudfecparl2fd" path="res://mobs/fire_worm/projectile/Explosion.png" id="1_7xhqg"]
+[ext_resource type="Script" path="res://mobs/fire_worm/projectile/projectile.gd" id="1_fj5vh"]
+[ext_resource type="Texture2D" uid="uid://djy4lvk7g36ho" path="res://mobs/fire_worm/projectile/Move.png" id="2_lisit"]
+[ext_resource type="Texture2D" uid="uid://dftkbqwsfd68r" path="res://mobs/fire_worm/projectile/projectile.png" id="4_4d0yb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_an7c3"]
+radius = 24.0208
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnt77"]
+atlas = ExtResource("1_7xhqg")
+region = Rect2(0, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hluns"]
+atlas = ExtResource("1_7xhqg")
+region = Rect2(46, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgipw"]
+atlas = ExtResource("1_7xhqg")
+region = Rect2(92, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kxyv"]
+atlas = ExtResource("1_7xhqg")
+region = Rect2(138, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvb3r"]
+atlas = ExtResource("1_7xhqg")
+region = Rect2(184, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyiec"]
+atlas = ExtResource("1_7xhqg")
+region = Rect2(230, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bb53"]
+atlas = ExtResource("1_7xhqg")
+region = Rect2(276, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltbhy"]
+atlas = ExtResource("2_lisit")
+region = Rect2(0, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p46bj"]
+atlas = ExtResource("2_lisit")
+region = Rect2(46, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbu1l"]
+atlas = ExtResource("2_lisit")
+region = Rect2(92, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcwix"]
+atlas = ExtResource("2_lisit")
+region = Rect2(138, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhur6"]
+atlas = ExtResource("2_lisit")
+region = Rect2(184, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o8al"]
+atlas = ExtResource("2_lisit")
+region = Rect2(230, 0, 46, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_medxl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnt77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hluns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgipw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kxyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvb3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyiec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bb53")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltbhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p46bj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbu1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcwix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhur6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o8al")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 10.0
+}]
+
+[node name="Projectile" type="Area2D"]
+light_mask = 0
+visibility_layer = 3
+script = ExtResource("1_fj5vh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_an7c3")
+
+[node name="AnimatedFireBall" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_medxl")
+animation = &"shoot"
+frame = 5
+frame_progress = 1.0
+
+[node name="Projectile" type="Sprite2D" parent="."]
+position = Vector2(-7, -3)
+texture = ExtResource("4_4d0yb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedFireBall" to="." method="_on_animated_sprite_2d_animation_finished"]
