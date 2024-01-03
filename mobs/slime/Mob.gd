@@ -20,7 +20,7 @@ func take_damage():
 	
 	if health == 0:
 		queue_free()
-		give_score.emit()
+		give_score.emit(1)
 		const SMOKE_EXPLOSION = preload("res://smoke_explosion/smoke_explosion.tscn")
 		var smoke = SMOKE_EXPLOSION.instantiate()
 		get_parent().add_child(smoke)

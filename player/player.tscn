@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://dyy6jnjoup2kd"]
+[gd_scene load_steps=23 format=3 uid="uid://dyy6jnjoup2kd"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_0nfn2"]
-[ext_resource type="Script" path="res://player/PlayerCamera.gd" id="3_wtx10"]
 [ext_resource type="PackedScene" uid="uid://15wfdv8vsmf1" path="res://pistol/gun.tscn" id="4_j5jjy"]
 [ext_resource type="Texture2D" uid="uid://ed7f6kgehsve" path="res://player/Basic Charakter Spritesheet.png" id="5_fx4rs"]
 
@@ -159,7 +158,6 @@ script = ExtResource("1_0nfn2")
 shape = SubResource("CircleShape2D_umpwx")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
-script = ExtResource("3_wtx10")
 
 [node name="Gun" parent="." instance=ExtResource("4_j5jjy")]
 position = Vector2(-13, -56)

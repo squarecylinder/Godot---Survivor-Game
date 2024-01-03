@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cai2ijnbypqtr"
-path="res://.godot/imported/slime_hurt_eyes.png-711256b4a2a47dcea723d274f00b4628.ctex"
+uid="uid://bam4h5btmmlp2"
+path="res://.godot/imported/Walk_Left.png-2dd5ce9c334610722289506191dc03cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/slime/slime_hurt_eyes.png"
-dest_files=["res://.godot/imported/slime_hurt_eyes.png-711256b4a2a47dcea723d274f00b4628.ctex"]
+source_file="res://mobs/fire_worm/sprite_sheets/Walk_Left.png"
+dest_files=["res://.godot/imported/Walk_Left.png-2dd5ce9c334610722289506191dc03cb.ctex"]
 
 [params]
 
