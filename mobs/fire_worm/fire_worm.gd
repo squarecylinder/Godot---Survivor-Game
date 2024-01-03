@@ -25,7 +25,6 @@ func _physics_process(_delta):
 		speed = 0
 		if direction[0] > 0: #If player is on the right normal attack anim
 			_animated_sprite.play("attack")
-			shoot()
 		if direction[0] < 0: #If player is on the left, just flip the anim. Could flip spritesheet and redo but lazy
 			_animated_sprite.flip_h = true
 			_animated_sprite.play("attack")
@@ -42,6 +41,7 @@ func take_damage():
 func _on_animated_sprite_2d_animation_finished():
 	if _animated_sprite.animation == "attack":
 		shoot()
+		pass
 	if health <= 0:
 		_animated_sprite.play("death")
 	if _animated_sprite.animation == "death":
@@ -55,8 +55,5 @@ func _on_animated_sprite_2d_animation_finished():
 func shoot():
 	var new_fire_ball = preload("res://mobs/fire_worm/projectile/projectile.tscn").instantiate()
 	new_fire_ball.global_position = %ShootingPoint.global_position
-	new_fire_ball.global_rotation = %ShootingPoint.global_rotation
-	print("Shooting Point pos: ", %ShootingPoint.global_position)
-	print("new_fire_ball.global_position: ", new_fire_ball.global_position)
-	print("worm pos: ", global_position)
+	new_fire_ball.global_rotation_degrees = 0 if not _animated_sprite.flip_h else 180
 	add_child(new_fire_ball)

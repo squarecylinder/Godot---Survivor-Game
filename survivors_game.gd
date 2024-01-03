@@ -13,7 +13,7 @@ func spawn_mob():
 	new_slime.global_position = %PathFollow2D.global_position
 	new_fire_worm.give_score.connect(_on_mob_give_score)
 	new_fire_worm.global_position = %PathFollow2D.global_position
-	var enemies_array = [new_fire_worm]
+	var enemies_array = [new_slime, new_fire_worm]
 	add_child(enemies_array.pick_random())
 
 func spawn_tree():
