@@ -3,11 +3,13 @@ extends Area2D
 var travelled_distance = 0
 
 @onready var _anim_f_b = $AnimatedFireBall
+@onready var player = get_node("/root/Game/Player")
 
 func _physics_process(delta):
+	look_at(player.global_position)
 	_anim_f_b.play("shoot")
 	const SPEED = 1000
-	const RANGE = 1200
+	const RANGE = 500
 	var direction = Vector2.RIGHT.rotated(rotation)
 	
 	position += direction * SPEED * delta

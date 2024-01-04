@@ -48,5 +48,6 @@ func pick_up_power_up(power_up):
 func _on_picked_up_power_up(power):
 	if power == "health_pack":
 		health += 25
+		%ProgressBar.value = health
 	if power == "speed_boost":
 		speed += speed * .05

@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://frnbagig2gig"]
+[gd_scene load_steps=19 format=3 uid="uid://frnbagig2gig"]
 
 [ext_resource type="Texture2D" uid="uid://dudfecparl2fd" path="res://mobs/fire_worm/projectile/Explosion.png" id="1_7xhqg"]
 [ext_resource type="Script" path="res://mobs/fire_worm/projectile/projectile.gd" id="1_fj5vh"]
 [ext_resource type="Texture2D" uid="uid://djy4lvk7g36ho" path="res://mobs/fire_worm/projectile/Move.png" id="2_lisit"]
-[ext_resource type="Texture2D" uid="uid://dftkbqwsfd68r" path="res://mobs/fire_worm/projectile/projectile.png" id="4_4d0yb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_an7c3"]
 radius = 24.0208
@@ -126,11 +125,6 @@ sprite_frames = SubResource("SpriteFrames_medxl")
 animation = &"shoot"
 frame = 5
 frame_progress = 1.0
-
-[node name="Projectile" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-7, -3)
-texture = ExtResource("4_4d0yb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedFireBall" to="." method="_on_animated_sprite_2d_animation_finished"]
