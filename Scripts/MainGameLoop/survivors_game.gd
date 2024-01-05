@@ -23,9 +23,9 @@ func spawn_mob():
 		var enemies_array = [new_slime, new_fire_worm]
 		var enemy_to_spawn = enemies_array.pick_random()
 		enemy_to_spawn.add_to_group("Enemies")
-		$Enemies.add_child(enemy_to_spawn)
-		#var test_array = [new_fire_worm]
-		#add_child(test_array.pick_random())
+		#$Enemies.add_child(enemy_to_spawn)
+		var test_array = [new_fire_worm]
+		$Enemies.add_child(test_array.pick_random())
 
 func spawn_tree():
 	var new_tree = preload("res://trees/pine_tree.tscn").instantiate()

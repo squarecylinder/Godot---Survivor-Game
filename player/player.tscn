@@ -150,7 +150,7 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 platform_floor_layers = 0
 script = ExtResource("1_0nfn2")
 

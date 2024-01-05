@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cjr172cews6cg"]
+[gd_scene load_steps=62 format=3 uid="uid://cjr172cews6cg"]
 
 [ext_resource type="Script" path="res://mobs/fire_worm/fire_worm.gd" id="1_8gstq"]
 [ext_resource type="Texture2D" uid="uid://d3r2f8y6e7wyp" path="res://mobs/fire_worm/sprite_sheets/Attack.png" id="2_elhrf"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b2n040r183tdo" path="res://mobs/fire_worm/sprite_sheets/Idle.png" id="5_7vbu1"]
 [ext_resource type="Texture2D" uid="uid://bam4h5btmmlp2" path="res://mobs/fire_worm/sprite_sheets/Walk_Left.png" id="6_u6rv3"]
 [ext_resource type="Texture2D" uid="uid://cw4dm0eugtoo2" path="res://mobs/fire_worm/sprite_sheets/Walk.png" id="7_8d8gs"]
+[ext_resource type="Script" path="res://Scripts/States/StateMachine.gd" id="8_b0yyy"]
+[ext_resource type="Script" path="res://Scripts/States/EnemyIdle.gd" id="9_t63eg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hpwft"]
 radius = 90.7965
@@ -414,6 +416,13 @@ position = Vector2(57, -20)
 scale = Vector2(0.333333, 0.333333)
 
 [node name="ShootTimer" type="Timer" parent="."]
+
+[node name="State Machine" type="Node" parent="."]
+script = ExtResource("8_b0yyy")
+
+[node name="EnemyIdle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("9_t63eg")
+enemy = NodePath("../..")
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -1,3 +1,4 @@
+class_name FireWorm
 extends CharacterBody2D
 
 signal give_score
@@ -22,24 +23,24 @@ func _physics_process(_delta):
 				if can_move: #Make shift way of making it so we don't cancel the attack if the player moves out of range
 					if _animated_sprite.flip_h: #If we flipped it when it attacked, flip back or it will walk backwards LOL
 						_animated_sprite.flip_h = false
-					if direction[0] > 0:
+					if velocity.x > 0:
 						_animated_sprite.play("walk_right")
-					if direction[0] < 0:
+					if velocity.x < 0:
 						_animated_sprite.play("walk_left")
 					move_and_slide()
 		else:
-			if direction[0] > 0: #If player is on the right normal attack anim
+			if velocity.x > 0: #If player is on the right normal attack anim
 				_animated_sprite.play("attack")
-			if direction[0] < 0: #If player is on the left, just flip the anim. Could flip spritesheet and redo but lazy
+			if velocity.x < 0: #If player is on the left, just flip the anim. Could flip spritesheet and redo but lazy
 				_animated_sprite.flip_h = true
 				_animated_sprite.play("attack")
 	
 func take_damage():
 	health -= 1
 	if health > 0:
-		_animated_sprite.play("hit")
+		#_animated_sprite.play("hit")
 		speed -= speed * .5 #should cause like a one frame stun idk
-	
+		
 	if health <= 0:
 		_animated_sprite.play("death")
 
