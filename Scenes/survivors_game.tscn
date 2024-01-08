@@ -54,11 +54,11 @@ size_flags_vertical = 4
 
 [node name="Button" type="Button" parent="UI/PauseMenu/VBoxContainer"]
 layout_mode = 2
-text = "Test"
+text = "Reset Game"
 
 [node name="Button2" type="Button" parent="UI/PauseMenu/VBoxContainer"]
 layout_mode = 2
-text = "Test 2"
+text = "Kill Game"
 
 [node name="GameOver" type="CanvasLayer" parent="UI"]
 unique_name_in_owner = true
@@ -156,6 +156,8 @@ process_mode = 1
 wait_time = 3.0
 autostart = true
 
+[connection signal="pressed" from="UI/PauseMenu/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="UI/GameOver/RestartButton" to="UI/GameOver/RestartButton" method="_on_pressed"]
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timers/Timer" to="." method="_on_timer_timeout"]

@@ -23,9 +23,9 @@ func spawn_mob():
 		var enemies_array = [new_slime, new_fire_worm]
 		var enemy_to_spawn = enemies_array.pick_random()
 		enemy_to_spawn.add_to_group("Enemies")
-		#$Enemies.add_child(enemy_to_spawn)
-		var test_array = [new_fire_worm]
-		$Enemies.add_child(test_array.pick_random())
+		$Enemies.add_child(enemy_to_spawn)
+		#var test_array = [new_fire_worm]
+		#$Enemies.add_child(test_array.pick_random())
 
 func spawn_tree():
 	var new_tree = preload("res://trees/pine_tree.tscn").instantiate()
@@ -48,11 +48,13 @@ func spawn_power_up():
 	var faster_shots = preload("res://power_ups/faster_shots/faster_shots.tscn").instantiate()
 	var health_pack = preload("res://power_ups/health_pack/health_pack.tscn").instantiate()
 	var speed_boost = preload("res://power_ups/speed_boost/speed_boost.tscn").instantiate()
+	var extra_pistol = preload("res://pistol/gun.tscn").instantiate()
 	%PowerUpSpawn.progress_ratio = randf()
 	faster_shots.global_position = %PowerUpSpawn.global_position
 	health_pack.global_position = %PowerUpSpawn.global_position
 	speed_boost.global_position = %PowerUpSpawn.global_position
-	var power_up_array = [faster_shots, health_pack, speed_boost]
+	extra_pistol.global_position = %PowerUpSpawn.global_position
+	var power_up_array = [faster_shots, health_pack, speed_boost, extra_pistol]
 	var power_up_to_spawn = power_up_array.pick_random()
 	power_up_to_spawn.add_to_group("PowerUps")
 	$PowerUps.add_child(power_up_to_spawn)
@@ -63,3 +65,9 @@ func _on_power_up_timer_timeout():
 func _on_mob_give_score(points):
 	score += points
 	%ScoreLabel.text = "Score: " + str(score)
+
+func _on_button_pressed():
+	get_tree().reload_current_scene()
+
+func _on_button_2_pressed():
+	get_tree().quit()

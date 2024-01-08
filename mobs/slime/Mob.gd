@@ -25,3 +25,8 @@ func take_damage():
 		var smoke = SMOKE_EXPLOSION.instantiate()
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
+
+
+func _on_area_2d_body_entered(body):
+	if body.has_method("touching_enemy"):
+		body.touching_enemy(10)

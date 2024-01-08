@@ -5,6 +5,7 @@ signal picked_up_power_up(power)
 
 var health = 100.0
 var speed = 600
+@onready var damage_rate = 5
 @onready var _animated_sprite = $AnimatedSprite2D
 
 func _physics_process(delta):
@@ -23,19 +24,21 @@ func _physics_process(delta):
 	else:
 		_animated_sprite.play("idle")
 		
-	const DAMAGE_RATE = 5.0
 	var overlapping_mobs = %HitBox.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0:
-		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+		health -= damage_rate * overlapping_mobs.size() * delta
 		%ProgressBar.value = health
 		if health <= 0.0:
 			health_depleted.emit()
 
-func player_hit():
-	health -= 10
+func player_hit(value: float):
+	health -= value
 	%ProgressBar.value = health
 	if health <= 0.0:
 		health_depleted.emit()
+
+func touching_enemy(value):
+	damage_rate = value
 
 func pick_up_power_up(power_up):
 	if power_up == "faster_shots":

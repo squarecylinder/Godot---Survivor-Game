@@ -8,7 +8,7 @@ var travelled_distance = 0
 func _physics_process(delta):
 	look_at(player.global_position)
 	_anim_f_b.play("shoot")
-	const SPEED = 1000
+	const SPEED = 500
 	const RANGE = 500
 	var direction = Vector2.RIGHT.rotated(rotation)
 	
@@ -21,5 +21,5 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	if body.has_method("player_hit"):
 		_anim_f_b.play("explosion")
-		body.player_hit()
+		body.player_hit(10.0)
 		queue_free()
